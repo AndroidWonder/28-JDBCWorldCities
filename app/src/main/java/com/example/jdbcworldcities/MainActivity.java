@@ -33,7 +33,7 @@ public class MainActivity extends Activity {
         t = new Thread(background);
         t.start();
 
-        //wait ubtil thread is finished
+        //wait until thread is finished
         try {
             t.join();
         } catch (InterruptedException e) {
