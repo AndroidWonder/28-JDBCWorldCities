@@ -1,3 +1,9 @@
+/*
+Background thread does SELECT, each record is put into a City object,
+the object is placed in an ArrayList<City>, bachground thread finishes and
+main thread writes data to UI.
+ */
+
 package com.example.jdbcworldcities;
 
 import java.sql.Connection;
@@ -10,9 +16,7 @@ import java.util.ArrayList;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.content.Intent;
+
 import android.widget.TextView;
 
 public class MainActivity extends Activity {
@@ -53,8 +57,8 @@ public class MainActivity extends Activity {
     Runnable background = new Runnable() {
         public void run() {
             String URL = "jdbc:mysql://frodo.bentley.edu:3306/world";
-            String username = "Android";
-            String password = "android";
+            String username = "harry";
+            String password = "harry";
 
             try { //load driver into VM memory
                 Class.forName("com.mysql.jdbc.Driver");
