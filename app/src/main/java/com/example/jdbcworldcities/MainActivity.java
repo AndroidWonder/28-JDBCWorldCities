@@ -69,7 +69,8 @@ public class MainActivity extends Activity {
             }
 
             Statement stmt = null;
-        //    Connection con = null;
+
+            //Note try with resources block
             try  //create connection to database
                     (Connection con = DriverManager.getConnection(
                         URL,
