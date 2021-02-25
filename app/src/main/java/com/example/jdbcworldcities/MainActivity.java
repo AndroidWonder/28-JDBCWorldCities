@@ -57,8 +57,8 @@ public class MainActivity extends Activity {
     Runnable background = new Runnable() {
         public void run() {
             String URL = "jdbc:mysql://frodo.bentley.edu:3306/world";
-            String username = "harry";
-            String password = "harry";
+            String username = "jpepe";
+            String password = "mysql";
 
             try { //load driver into VM memory
                 Class.forName("com.mysql.jdbc.Driver");
