@@ -2,6 +2,8 @@
 Background thread does SELECT, each record is put into a City object,
 the object is placed in an ArrayList<City>, bachground thread finishes and
 main thread writes data to UI.
+
+Note the use of a try with resources block and a thread join.
  */
 
 package com.example.jdbcworldcities;
@@ -51,7 +53,6 @@ public class MainActivity extends Activity {
         for (int i = 0; i < list.size(); i++) {
             texted.append(list.get(i) + "\n");
         }
-
     }
 
     Runnable background = new Runnable() {
@@ -68,12 +69,12 @@ public class MainActivity extends Activity {
             }
 
             Statement stmt = null;
-            Connection con = null;
-            try { //create connection to database
-                con = DriverManager.getConnection(
+        //    Connection con = null;
+            try  //create connection to database
+                    (Connection con = DriverManager.getConnection(
                         URL,
                         username,
-                        password);
+                        password)) {
                 stmt = con.createStatement();
 
                 ResultSet result = stmt.executeQuery(
@@ -92,15 +93,7 @@ public class MainActivity extends Activity {
 
             } catch (SQLException e) {
                 e.printStackTrace();
-            } finally {
-                try { //close may throw checked exception
-                    if (con != null)
-                        con.close();
-                } catch (SQLException e) {
-                    Log.e("JDBC", "close connection failed");
-                }
             }
-            ;
         } //run
     }; //background
 
