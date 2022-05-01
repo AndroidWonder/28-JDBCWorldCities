@@ -61,13 +61,6 @@ public class MainActivity extends Activity {
             String username = "harry";
             String password = "harry";
 
-            try { //load driver into VM memory
-                Class.forName("com.mysql.jdbc.Driver");
-            } catch (ClassNotFoundException e) {
-                Log.e("JDBC", "Did not load driver");
-
-            }
-
             Statement stmt = null;
 
             //Note try with resources block
