@@ -1,12 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdk 30
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.example.jdbcworldcities"
         minSdkVersion 26
-        targetSdkVersion 30
+        targetSdkVersion 33
     }
 
     buildTypes {
@@ -15,7 +15,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
     }
-    buildToolsVersion '30.0.3'
+    buildToolsVersion '33.0.1'
 }
 
 dependencies {
